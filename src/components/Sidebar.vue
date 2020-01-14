@@ -1,17 +1,13 @@
 <template>
   <aside>
-    <h1>{{ title }}</h1>
-    <h2>{{ subTitle }}</h2>
+    <h1>NASA</h1>
+    <h2>Picture of the Day</h2>
   </aside>
 </template>
 
 <script>
 export default {
-  name: 'Sidebar',
-  props: {
-    title: String,
-    subTitle: String
-  }
+  name: 'Sidebar'
 }
 </script>
 
