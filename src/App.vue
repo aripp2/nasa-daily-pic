@@ -14,7 +14,6 @@
 <script>
 import Sidebar from './components/Sidebar.vue';
 import ImageContainer from './components/ImageContainer';
-require('dotenv').config;
 
 export default {
   name: 'app',
