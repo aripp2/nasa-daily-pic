@@ -2,6 +2,7 @@
   <aside>
     <h1>NASA</h1>
     <h2>Picture of the Day</h2>
+    <p>{{ date }}</p>
     <p>{{ imageExplanation }}</p>
   </aside>
 </template>
@@ -10,7 +11,8 @@
 export default {
   name: 'Sidebar',
   props: {
-    imageExplanation: String
+    imageExplanation: String,
+    date: String
   }
 }
 </script>

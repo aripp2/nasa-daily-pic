@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Sidebar 
+      :date="todaysDate"
       :imageExplanation="dailyImage.explanation"
     />
     <ImageContainer 
@@ -23,7 +24,8 @@ export default {
   },
   data() {
     return {
-      dailyImage: {}
+      dailyImage: {},
+      todaysDate: new Date().toString().split(' ').slice(0, 4).join(' ')
     }
   },
   mounted() {
