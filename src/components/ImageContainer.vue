@@ -1,6 +1,10 @@
 <template>
   <div class="one-image">
-    <img :alt="altDescription" :src="spacePic"/>
+    {{ imageTitle }}
+    <img 
+      :alt=imageTitle
+      :src=spacePic
+    />
   </div>
 </template>
 
@@ -8,7 +12,7 @@
 export default {
   name: 'ImageContainer',
   props: {
-    altDescription: String,
+    imageTitle: String,
     spacePic: String
   }
 }
