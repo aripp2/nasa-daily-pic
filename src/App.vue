@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <Sidebar />
+    <Sidebar 
+      :date="todaysDate"
+      :imageExplanation="dailyImage.explanation"
+    />
     <ImageContainer 
       :imageTitle="dailyImage.title" 
       :spacePic="dailyImage.url"
@@ -11,7 +14,6 @@
 <script>
 import Sidebar from './components/Sidebar.vue';
 import ImageContainer from './components/ImageContainer';
-require('dotenv').config;
 
 export default {
   name: 'app',
@@ -21,7 +23,8 @@ export default {
   },
   data() {
     return {
-      dailyImage: {}
+      dailyImage: {},
+      todaysDate: new Date().toString().split(' ').slice(0, 4).join(' ')
     }
   },
   mounted() {
