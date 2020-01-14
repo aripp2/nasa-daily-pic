@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Sidebar />
+    <Sidebar 
+      :imageExplanation="dailyImage.explanation"
+    />
     <ImageContainer 
       :imageTitle="dailyImage.title" 
       :spacePic="dailyImage.url"
