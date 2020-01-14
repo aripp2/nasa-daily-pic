@@ -32,10 +32,8 @@ export default {
   // }
   mounted() {
     const apiKey = process.env.VUE_APP_API_KEY;
-    console.log(apiKey)
     const baseUrl = "https://api.nasa.gov/planetary/apod?api_key="
-    console.log(baseUrl + "apiKey")
-    fetch(baseUrl + apiKey)
+    fetch(`${baseUrl}${apiKey}`)
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(error => console.log(error))
