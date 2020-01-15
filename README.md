@@ -19,6 +19,10 @@ This application allows the user to view NASA's Astronomy Picture of the Day and
 
 ![month-view](https://user-images.githubusercontent.com/44537724/72461159-a1a2bc00-378b-11ea-8a31-1b809211b43e.png)
 
+## Wireframe
+- Note: As I was creating the application, I decided that my wireframe was not the best UX/UI, so I made significant changes. 
+<img width="690" alt="Screen Shot 2020-01-14 at 10 45 02 AM" src="https://user-images.githubusercontent.com/44537724/72461575-8e442080-378c-11ea-9fbd-151d4198d332.png">
+
 ## Known Issues/Bugs
 - Modal is appending in layers of multiple modals
 - Modals still need some styling and formatting
