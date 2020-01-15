@@ -90,17 +90,16 @@ h1 {
   color: navy;
 }
 h2 {
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: bold;
 }
 p {
-  font-size: 2em;
+  font-size: 1.6em;
 }
 button {
   font-size: 1em;
-  font-weight: bold;
   color: navy;
-  height: 50px;
+  height: 80px;
   width: 150px;
   border: 4px solid navy;
   border-radius: 5px;
@@ -109,5 +108,6 @@ button {
 button:hover {
   background-color: navy;
   color: white;
+  cursor: pointer;
 }
 </style>
