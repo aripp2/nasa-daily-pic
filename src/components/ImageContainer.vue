@@ -1,10 +1,12 @@
 <template>
   <div class="one-image">
+    <h3>"{{ dailyImage.title }}"</h3>
     <img 
-      :alt=imageTitle
-      :src=spacePic
+      :alt=dailyImage.title
+      :src=dailyImage.url
     />
-    <p>"{{ imageTitle }}"</p>
+    <p v-if="dailyImage.copyright">&copy {{ dailyImage.copyright }}</p>
+    <p class="explanation">{{ dailyImage.explanation }}</p>
   </div>
 </template>
 
@@ -12,23 +14,25 @@
 export default {
   name: 'ImageContainer',
   props: {
-    imageTitle: String,
-    spacePic: String
+    dailyImage: Object
   }
 }
 </script>
 
 <style scoped>
   .one-image {
-    height: 100vh;
-    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   img {
-    max-height: 70vh;
-    max-width: 60vw; 
+    max-height: 60vh;
+    max-width: 80vw; 
+    margin: 10px auto;
   }
+  .explanation {
+    width: 80%;
+  }
+
 </style>
