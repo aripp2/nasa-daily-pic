@@ -1,12 +1,12 @@
 <template>
   <div class="month-image">
-    <h4>{{ dayImage.title }}</h4>
+    <h4>"{{ dayImage.title }}"</h4>
     <h5>{{ fixedDate }}</h5>
     <img 
       :alt="dayImage.title"
       :src="dayImage.url"
     />
-    
+    <p v-if="dayImage.copyright">&copy {{ dayImage.copyright }}</p>
   </div>
 </template>
 

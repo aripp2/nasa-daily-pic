@@ -15,9 +15,7 @@
     />
     <ImageContainer 
       v-else
-      :imageTitle="dailyImage.title" 
-      :spacePic="dailyImage.url"
-      :imageExplanation="dailyImage.explanation"
+      :dailyImage="dailyImage"
     />
   </div>
 </template>

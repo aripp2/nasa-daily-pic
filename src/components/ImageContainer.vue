@@ -1,12 +1,12 @@
 <template>
   <div class="one-image">
-    <h3>"{{ imageTitle }}"</h3>
+    <h3>"{{ dailyImage.title }}"</h3>
     <img 
-      :alt=imageTitle
-      :src=spacePic
+      :alt=dailyImage.title
+      :src=dailyImage.url
     />
-    <p class="explanation">{{ imageExplanation }}</p>
-
+    <p v-if="dailyImage.copyright">&copy {{ dailyImage.copyright }}</p>
+    <p class="explanation">{{ dailyImage.explanation }}</p>
   </div>
 </template>
 
@@ -14,9 +14,7 @@
 export default {
   name: 'ImageContainer',
   props: {
-    imageTitle: String,
-    spacePic: String,
-    imageExplanation: String
+    dailyImage: Object
   }
 }
 </script>
