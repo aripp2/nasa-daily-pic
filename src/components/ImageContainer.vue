@@ -25,14 +25,21 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: aliceblue;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px rgb(202, 207, 207);;
+    color: navy;
+    margin: 20px auto;
   }
   img {
     max-height: 60vh;
     max-width: 80vw; 
     margin: 10px auto;
+    border-radius: 5px;
   }
   .explanation {
     width: 80%;
+    font-size: 1.2em;
   }
 
 </style>
