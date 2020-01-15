@@ -10,6 +10,14 @@ export const getDailyImage = async() => {
   return dailyImage;
 }
 
-export const getMonthImages = async() => {
-  
+export const getMonthImages = async(today) => {
+  const endDay = today.split('-')[2]
+  const month = today.split('-')[1]
+  const year = today.split('-')[0]
+  const response = await fetch(`${baseUrl}${apiKey}&start_date=${year}-${month}-01`)
+    if (!response.ok) {
+      throw Error('Unable to get this month\'s images. Try again later.')
+    }  
+  const monthImages = await response.json()
+  return monthImages;
 }
