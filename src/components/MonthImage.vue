@@ -1,11 +1,12 @@
 <template>
   <div class="month-image">
     <h4>{{ dayImage.title }}</h4>
-    <h5></h5>
+    <h5>{{ fixedDate }}</h5>
     <img 
       :alt="dayImage.title"
       :src="dayImage.url"
     />
+    
   </div>
 </template>
 
@@ -15,14 +16,11 @@ export default {
   props: {
     dayImage: Object
   },
-  data() {
-    return {
-      date: String
+  computed: {
+    fixedDate: function () {
+      return new Date(this.dayImage.date).toString().split(' ').slice(0, 4).join(' ')
     }
-  },
-  // methods: {
-  //   cleanDate()
-  // }
+  }
 }
 </script>
 

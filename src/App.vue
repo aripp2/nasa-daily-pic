@@ -6,7 +6,7 @@
       <p>{{ todaysDate }}</p>
       <button 
         @click="toggleView"
-      >Toggle View
+      >{{ monthView ? "Return to Today's Image" : "View all this Month's Images"}}
       </button>
     </header>
     <MonthContainer
