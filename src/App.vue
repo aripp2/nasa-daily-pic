@@ -14,26 +14,41 @@
 <script>
 import Sidebar from './components/Sidebar.vue';
 import ImageContainer from './components/ImageContainer';
+import MonthContainer from './components/MonthContainer';
+import { getDailyImage } from '../src/apiCalls';
 
 export default {
   name: 'app',
   components: {
     Sidebar,
-    ImageContainer
+    ImageContainer,
+    MonthContainer
+  },
+  props: {
+    monthView: false
   },
   data() {
     return {
       dailyImage: {},
-      todaysDate: new Date().toString().split(' ').slice(0, 4).join(' ')
+      todaysDate: new Date().toString().split(' ').slice(0, 4).join(' '),
+      monthImages: [],
+      error: '',
+      idLoading: true
     }
   },
-  mounted() {
-    const apiKey = process.env.VUE_APP_API_KEY;
-    const baseUrl = "https://api.nasa.gov/planetary/apod?api_key="
-    fetch(`${baseUrl}${apiKey}`)
-      .then(response => response.json())
-      .then(data => this.dailyImage = data)
-      .catch(error => console.log(error))
+  async mounted() {
+    try {
+      const responseImage = await getDailyImage()
+      this.dailyImage = responseImage;
+    } catch ({ message }) {
+      this.error = message;
+      console.log(this.error)
+    }
+
+    // fetch(`${baseUrl}${apiKey}&start_date=2020-01-01&end_date=2020-01-14`)
+    //   .then(response => response.json())
+    //   .then(data => console.log(data))
+    //   .catch(error => console.log(error))
   }
 }
 </script>
