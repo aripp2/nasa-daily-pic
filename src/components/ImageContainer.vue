@@ -5,7 +5,8 @@
       :alt=dailyImage.title
       :src=dailyImage.url
     />
-    <p v-if="dailyImage.copyright">&copy {{ dailyImage.copyright }}</p>
+    <p 
+      class="copyright" v-if="dailyImage.copyright">&copy {{ dailyImage.copyright }}</p>
     <p class="explanation">{{ dailyImage.explanation }}</p>
   </div>
 </template>
@@ -31,6 +32,10 @@ export default {
     color: navy;
     margin: 20px auto;
   }
+  h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
   img {
     max-height: 60vh;
     max-width: 80vw; 
@@ -40,6 +45,10 @@ export default {
   .explanation {
     width: 80%;
     font-size: 1.2em;
+  }
+  .copyright {
+    font-size: 1em;
+    margin: 10px;
   }
 
 </style>

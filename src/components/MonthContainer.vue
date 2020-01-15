@@ -1,7 +1,10 @@
 <template>
-  <div class="month-view">
-    <div v-for="day in days" :key="day.date">
-      <MonthImage :dayImage="day"/>
+  <div class="month-container">
+    <h6>Click on any image below to view the explanation.</h6>
+    <div class="month-view">
+      <div v-for="day in days" :key="day.date">
+        <MonthImage :dayImage="day"/>
+      </div>
     </div>
   </div>
 </template>
@@ -30,5 +33,12 @@ export default {
   }
   p {
     font-size: 5em;
+  }
+  h6 {
+    height: 40px;
+    width: 70%;
+    margin: 10px auto;
+    color: navy;
+    font-size: 1em;
   }
 </style>

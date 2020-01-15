@@ -1,13 +1,16 @@
 <template>
   <div class="month-image">
-    <h4>"{{ dayImage.title }}"</h4>
-    <h5>{{ fixedDate }}</h5>
+    <h4 class="title">"{{ dayImage.title }}"</h4>
+    <h5 class="date">{{ fixedDate }}</h5>
     <img 
       @click="show"
       :alt="dayImage.title"
       :src="dayImage.url"
     />
-    <p v-if="dayImage.copyright">&copy {{ dayImage.copyright }}</p>
+    <p 
+      class="copyright" 
+      v-if="dayImage.copyright">&copy 
+      {{ dayImage.copyright }}</p>
     <modal
       :adaptive="true"
       height="auto" 
@@ -56,6 +59,8 @@ export default {
     flex-direction: column;
     align-items: center;
     margin: 10px auto;
+    color: navy;
+
   }
   h4 {
     margin-bottom: 5px;
@@ -71,6 +76,9 @@ export default {
     max-width: 70%;
     margin: auto;
   }
+  image:hover {
+    cursor: pointer;
+  }
   .explanation-modal {
     background: transparent;
     padding: 20px;
@@ -84,5 +92,16 @@ export default {
   button {
     height: 30px;
     width: 80px;
+  }
+  .copyright {
+    font-size: 1em;
+  }
+  .title {
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  .date {
+    font-size: 1.2em;
+    font-weight: 300;
   }
 </style>
