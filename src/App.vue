@@ -73,6 +73,41 @@ export default {
   padding: 0;
   display: flex;
   flex-direction: column;
-  background-image: 
+}
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: aliceblue;
+  border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px rgb(202, 207, 207);;
+  color: navy;
+
+}
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+  color: navy;
+}
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+}
+p {
+  font-size: 2em;
+}
+button {
+  font-size: 1em;
+  font-weight: bold;
+  color: navy;
+  height: 50px;
+  width: 150px;
+  border: 4px solid navy;
+  border-radius: 5px;
+  outline: none;
+}
+button:hover {
+  background-color: navy;
+  color: white;
 }
 </style>
