@@ -1,22 +1,28 @@
 <template>
   <div id="app">
-    <Header 
-      :date="todaysDate"
+    <header>
+      <h1>NASA</h1>
+      <h2>Astronomy Picture of the Day</h2>
+      <p>{{ todaysDate }}</p>
+      <button 
+        @click="toggleView"
+      >Toggle View
+      </button>
+    </header>
+    <MonthContainer
+      v-if="monthView"
+      :days="monthImages"
     />
-    <!-- <ImageContainer 
-      v-if="monthView === false"
+    <ImageContainer 
+      v-else
       :imageTitle="dailyImage.title" 
       :spacePic="dailyImage.url"
       :imageExplanation="dailyImage.explanation"
-    /> -->
-    <MonthContainer 
-      :days="monthImages"
     />
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
 import ImageContainer from './components/ImageContainer';
 import MonthContainer from './components/MonthContainer';
 import { getDailyImage, getMonthImages } from '../src/apiCalls';
@@ -24,12 +30,8 @@ import { getDailyImage, getMonthImages } from '../src/apiCalls';
 export default {
   name: 'app',
   components: {
-    Header,
     ImageContainer,
     MonthContainer
-  },
-  props: {
-    monthView: false
   },
   data() {
     return {
@@ -37,14 +39,15 @@ export default {
       todaysDate: new Date().toString().split(' ').slice(0, 4).join(' '),
       monthImages: [],
       error: '',
-      idLoading: true
+      idLoading: true,
+      monthView: false
     }
   },
-  // methods: {
-  //   toggleView() {
-
-  //   }
-  // },
+  methods: {
+    toggleView() {
+      this.monthView = !this.monthView
+    }
+  },
   async mounted() {
     try {
       const responseImage = await getDailyImage();
@@ -72,5 +75,6 @@ export default {
   padding: 0;
   display: flex;
   flex-direction: column;
+  background-image: 
 }
 </style>
