@@ -14,4 +14,12 @@ This application allows the user to view NASA's Astronomy Picture of the Day and
 5. Go to `http://localhost:8080/` in your browser
 6. Enjoy!
 
+## Screenshots
+![daily-view](https://user-images.githubusercontent.com/44537724/72461214-bf702100-378b-11ea-9e89-b8bfe4a27374.png)
 
+![month-view](https://user-images.githubusercontent.com/44537724/72461159-a1a2bc00-378b-11ea-8a31-1b809211b43e.png)
+
+## Known Issues/Bugs
+- Modal is appending in layers of multiple modals
+- Modals still need some styling and formatting
+- No Testing
