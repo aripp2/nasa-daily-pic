@@ -1,18 +1,22 @@
 <template>
   <div id="app">
-    <Sidebar 
+    <Header 
       :date="todaysDate"
-      :imageExplanation="dailyImage.explanation"
     />
-    <ImageContainer 
+    <!-- <ImageContainer 
+      v-if="monthView === false"
       :imageTitle="dailyImage.title" 
       :spacePic="dailyImage.url"
+      :imageExplanation="dailyImage.explanation"
+    /> -->
+    <MonthContainer 
+      :days="monthImages"
     />
   </div>
 </template>
 
 <script>
-import Sidebar from './components/Sidebar.vue';
+import Header from './components/Header.vue';
 import ImageContainer from './components/ImageContainer';
 import MonthContainer from './components/MonthContainer';
 import { getDailyImage, getMonthImages } from '../src/apiCalls';
@@ -20,7 +24,7 @@ import { getDailyImage, getMonthImages } from '../src/apiCalls';
 export default {
   name: 'app',
   components: {
-    Sidebar,
+    Header,
     ImageContainer,
     MonthContainer
   },
@@ -36,6 +40,11 @@ export default {
       idLoading: true
     }
   },
+  // methods: {
+  //   toggleView() {
+
+  //   }
+  // },
   async mounted() {
     try {
       const responseImage = await getDailyImage();
@@ -53,6 +62,7 @@ export default {
 
 <style>
 #app {
+  width: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -61,6 +71,6 @@ export default {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 </style>

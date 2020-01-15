@@ -1,26 +1,24 @@
 <template>
-  <aside>
+  <header>
     <h1>NASA</h1>
-    <h2>Picture of the Day</h2>
+    <h2>Astronomy Picture of the Day</h2>
     <p>{{ date }}</p>
-    <p>{{ imageExplanation }}</p>
-  </aside>
+  </header>
 </template>
 
 <script>
 export default {
-  name: 'Sidebar',
+  name: 'Header',
   props: {
-    imageExplanation: String,
     date: String
   }
 }
 </script>
 
 <style scoped>
-  aside {
-    height: 100vh;
-    width: 30%;
+  header {
+    height: 150px;
+    width: 100%;
     background: #BDA7D5;
     margin: 0;
 

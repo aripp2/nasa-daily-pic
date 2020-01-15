@@ -11,7 +11,6 @@ export const getDailyImage = async() => {
 }
 
 export const getMonthImages = async(today) => {
-  const endDay = today.split('-')[2]
   const month = today.split('-')[1]
   const year = today.split('-')[0]
   const response = await fetch(`${baseUrl}${apiKey}&start_date=${year}-${month}-01`)
