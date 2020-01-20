@@ -9,7 +9,6 @@
     <youtube 
       v-else
       :video-id="videoId"
-      :player-vars="{ autoplay: 1 }"
     >
     </youtube>
     <p 
@@ -19,7 +18,7 @@
 </template>
 
 <script>
-import { getIdFromURL, getTimeFromURL } from 'vue-youtube-embed'
+import { getIdFromURL } from 'vue-youtube-embed'
 
 export default {
   name: 'ImageContainer',
@@ -28,18 +27,12 @@ export default {
   },
   data() {
     return {
-      videoId: this.getId(this.dailyImage.url)
+      videoId: ""
     }
   },
-  methods: {
-    getId (url) {
-      if (this.dailyImage.url) {
-
-        this.videoId = this.$youtube.getIdFromURL(url)
-      console.log('video id', this.videoId)
-      // this.startTime = this.$youtube.getTimeFromURL(this.dailyImage.url)
-      }
-    }
+  async created() {
+    let id = await this.$youtube.getIdFromURL(this.dailyImage.url)
+    this.videoId = id;
   }
 }
 </script>
