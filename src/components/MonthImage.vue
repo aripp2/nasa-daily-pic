@@ -1,12 +1,30 @@
 <template>
   <div class="month-image">
-    <h4 class="title">"{{ dayImage.title }}"</h4>
-    <h5 class="date">{{ fixedDate }}</h5>
+    <h4 
+      class="title"
+      @click="show"
+    >"{{ dayImage.title }}"</h4>
+    <h5 
+      class="date">{{ fixedDate }}
+    </h5>
     <img 
+      v-if="!checkLoading"
+      src="https://media3.giphy.com/media/3oriOiizS4Pmofj46A/source.gif"
+      alt="loading gif"
+    />
+    <img 
+      v-if="dayImage.media_type === 'image'"
       @click="show"
       :alt="dayImage.title"
       :src="dayImage.url"
     />
+    <youtube 
+      v-if="dayImage.media_type === 'video'"
+      :video-id="videoId"
+      player-width="300"
+      player-height="200"
+    >
+    </youtube>
     <p 
       class="copyright" 
       v-if="dayImage.copyright">&copy 
@@ -27,22 +45,38 @@
 </template>
 
 <script>
+import { getIdFromURL } from 'vue-youtube-embed'
+
 export default {
   name: "MonthImage",
   props: {
     dayImage: Object
   },
-  computed: {
-    fixedDate: function () {
-      return new Date(this.dayImage.date).toString().split(' ').slice(0, 4).join(' ')
+  data() {
+    return {
+      videoId: ""
     }
   },
   methods: {
+    getId() {
+      this.videoId = this.$youtube.getIdFromURL(this.dayImage.url)
+    },
     show () {
       this.$modal.show("explanation-modal");
     },
     hide () {
       this.$modal.hide("explanation-modal");
+    }
+  },
+  computed: {
+    fixedDate: function () {
+      return new Date(this.dayImage.date).toString().split(' ').slice(0, 4).join(' ')
+    },
+    checkLoading: function () {
+      if (this.dayImage.url) {
+        this.getId();
+        return true
+      }
     }
   }
 }

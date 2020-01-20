@@ -1,6 +1,6 @@
 <template>
   <div class="month-container">
-    <h6>Click on any image below to view the explanation.</h6>
+    <h6>Click on any image or image title below to view the explanation.</h6>
     <div class="month-view">
       <div v-for="day in days" :key="day.date">
         <MonthImage :dayImage="day"/>
