@@ -2,9 +2,16 @@
   <div class="one-image">
     <h3>"{{ dailyImage.title }}"</h3>
     <img 
+      v-if="dailyImage.media === 'image'"
       :alt=dailyImage.title
       :src=dailyImage.url
     />
+    <youtube 
+      v-else
+      :video-id="videoId"
+      :player-vars="{ autoplay: 1 }"
+    >
+    </youtube>
     <p 
       class="copyright" v-if="dailyImage.copyright">&copy {{ dailyImage.copyright }}</p>
     <p class="explanation">{{ dailyImage.explanation }}</p>
@@ -12,10 +19,27 @@
 </template>
 
 <script>
+import { getIdFromURL, getTimeFromURL } from 'vue-youtube-embed'
+
 export default {
   name: 'ImageContainer',
   props: {
     dailyImage: Object
+  },
+  data() {
+    return {
+      videoId: this.getId(this.dailyImage.url)
+    }
+  },
+  methods: {
+    getId (url) {
+      if (this.dailyImage.url) {
+
+        this.videoId = this.$youtube.getIdFromURL(url)
+      console.log('video id', this.videoId)
+      // this.startTime = this.$youtube.getTimeFromURL(this.dailyImage.url)
+      }
+    }
   }
 }
 </script>
