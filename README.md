@@ -1,6 +1,6 @@
-# Nasa Daily Pick
+# Nasa Daily Pic
 ### Created by: [Amy Rippeto](https://github.com/aripp2)
-
+#### [Deployed Application on GitHub Pages](https://aripp2.github.io/nasa-daily-pic/)
 ## Objective
 This was a final project as a student in the Front End Engineering program at Turing School of Software and Design. I was tasked with creating a simple one page application utilizing the [NASA API](https://api.nasa.gov/). The challenge was to build the application in **Vue.js**, a framework we were not taught.
 
