@@ -31,11 +31,14 @@
       {{ dayImage.copyright }}</p>
     <modal
       :adaptive="true"
-      height="auto" 
       :scrollable="true" 
-      name="explanation-modal" class="explanation-modal">
+      height="auto" 
+      width="60%"
+      name="explanation-modal" 
+      class="explanation-modal"
+    >
       <div class="explanation">
-        {{ dayImage.explanation }}
+        <p>{{ dayImage.explanation }}</p>
         <button
           @click="hide"
         >Close</button>
@@ -115,17 +118,22 @@ export default {
   }
   .explanation-modal {
     background: transparent;
-    padding: 20px;
+    font-size: 0.7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
   .explanation {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    margin: 20px;
   }
   button {
-    height: 30px;
-    width: 80px;
+    height: 40px;
+    width: 100px;
+    margin-top: 10px;
   }
   .copyright {
     font-size: 1em;
